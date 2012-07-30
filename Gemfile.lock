@@ -1,0 +1,12 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    lunchy (0.6.0)
+    pow (0.2.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  lunchy
+  pow
