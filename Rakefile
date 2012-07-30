@@ -52,7 +52,12 @@ namespace :install do
 
   desc 'Run post-install tasks.'
   task :post do
-    system 'git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build'
+    rbuild_path = File.expand_path("~/.rbenv/plugins/ruby-build")
+    if File.directory?(rbuild_path) &&  File.directory?(rbuild_path + "/.git")
+      system "cd #{rbuild_path}; git pull"
+    else
+      system "rm -r #{rbuild_path}; git clone git://github.com/sstephenson/ruby-build.git #{rbuild_path}"
+    end
     puts "\n\n\n##################################################"
     puts "Now install your ruby using rbenv and after that, pow"
   end
