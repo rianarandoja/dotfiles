@@ -5,12 +5,8 @@ export MANPAGER="less -X"
 # Highlight section titles in manual pages
 export LESS_TERMCAP_md="$ORANGE"
 
-if [[ -x `which brew` ]]; then
-  if [[ -x `which node` ]]; then
-    export NODE_PATH=usr/local/lib/node_modules
-  fi
-
-  if [[ -d $(brew --prefix coreutils) ]]; then
-    export PATH=$(brew --prefix coreutils)/bin:$PATH
-  fi
+if [ -x `which brew` ]; then
+  [ -d $(brew --prefix node) ] && export NODE_PATH=usr/local/lib/node_modules
+  [ -d $(brew --prefix coreutils) ] && export PATH=$(brew --prefix coreutils)/bin:$PATH
+  [ -d $(brew --prefix android) ] && export ANDROID_SDK_ROOT=$(brew --prefix android)
 fi

@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'lunchy'
-gem 'pow'
+gem 'powder'
+gem 'awesome_print'
+gem 'interactive_editor'

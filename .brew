@@ -35,6 +35,5 @@ brew install rhino
 brew install tree
 brew install webkit2png
 brew install ngrep
-brew install rbenv
-brew install ruby-build
+brew install android
 #brew install imagemagick

@@ -16,20 +16,6 @@ To update, `cd` into your local `dotfiles` repository and then:
 ./bootstrap.sh
 ```
 
-Alternatively, to update while avoiding the confirmation prompt:
-
-```bash
-./bootstrap.sh -f
-```
-
-### Git-free install
-
-To install these dotfiles without Git:
-
-```bash
-cd; curl -#L https://github.com/krisrang/dotfiles/tarball/master | tar -xzv --strip-components 1 --exclude={README.md,bootstrap.sh}
-```
-
 To update later on, just run that command again.
 
 ### Sensible OS X defaults
@@ -37,7 +23,7 @@ To update later on, just run that command again.
 When setting up a new Mac, you may want to set some sensible OS X defaults:
 
 ```bash
-./.osx
+~/.osx
 ```
 
 ### Install Homebrew formulae
@@ -45,10 +31,12 @@ When setting up a new Mac, you may want to set some sensible OS X defaults:
 When setting up a new Mac, you may want to install some common Homebrew formulae (after installing Homebrew, of course):
 
 ```bash
-./.brew
+~/.brew
 ```
 
 ## Thanks to…
 
 * [Mathias Bynens](http://mths.be/) for the [original repo of this fork](https://github.com/mathiasbynens/dotfiles)
-* and recursively, others
+* [Gianni Chiappetta](http://gf3.ca/) for his [dotfile bootstrap scripts](https://github.com/gf3/dotfiles)
+* [Jan Moesen](http://jan.moesen.nu/) for his [wgetrc](https://github.com/janmoesen/tilde)
+* and recursively, all the others
