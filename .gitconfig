@@ -1,3 +1,15 @@
+[github]
+	user = krisrang
+	password = !security 2>&1 >/dev/null find-generic-password -gs github.password | ruby -e 'print $1 if STDIN.gets =~ /^password: \\\"(.*)\\\"$/'
+
+[gist]
+	private = yes
+	browse = yes
+
+[user]
+	name = Kristjan Rang
+	email = mail@kristjanrang.eu
+
 [alias]
 	# View the SHA, description, and history graph of the latest 20 commits
 	l = log --pretty=oneline -n 20 --graph
@@ -71,7 +83,3 @@
 	pushInsteadOf = "git://gist.github.com/"
 [url "git://gist.github.com/"]
 	insteadOf = "gist:"
-
-[user]
-	name = Kristjan Rang
-	email = mail@kristjanrang.eu
