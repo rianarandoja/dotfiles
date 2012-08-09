@@ -22,9 +22,8 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(git autojump brew bundler encode64 extract gem heroku nyan osx pow powder rails3 rake rbenv terminalapp)
 
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
+source $ZSH/oh-my-zsh.sh
 
 source .aliases
 source .exports
 source .functions
-
-source $ZSH/oh-my-zsh.sh
