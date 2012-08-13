@@ -9,7 +9,7 @@ def post_external(path, repo)
   if File.directory?(path) &&  File.directory?(path + "/.git")
     system "cd #{path}; git pull"
   else
-    system "rm -r #{path}; git clone repo #{path}"
+    system "rm -r #{path}; git clone #{repo} #{path}"
   end
 end
 
