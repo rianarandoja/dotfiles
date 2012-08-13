@@ -56,8 +56,6 @@ if [ -d ~/.dotfiles ]; then
   notice "Updating"
   cd ~/.dotfiles
   git pull origin master
-  git submodule init
-  git submodule update
 
   # --- Install --- #
   notice "Installing"

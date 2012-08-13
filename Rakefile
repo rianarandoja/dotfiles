@@ -5,6 +5,14 @@ def entries
   @files ||= Dir.entries( File.expand_path( '~/.dotfiles' ) ) - $exclude
 end
 
+def post_external(path, repo)
+  if File.directory?(path) &&  File.directory?(path + "/.git")
+    system "cd #{path}; git pull"
+  else
+    system "rm -r #{path}; git clone repo #{path}"
+  end
+end
+
 # Files and folders which shouldn't be copied over
 $exclude = [
   '.',
@@ -52,12 +60,16 @@ namespace :install do
 
   desc 'Run post-install tasks.'
   task :post do
+    # External repos
+    ohmyzsh_path = File.expand_path("~/.oh-my-zsh")
+    post_external(ohmyzsh_path, "git://github.com/robbyrussell/oh-my-zsh.git")
+    rbenv_path = File.expand_path("~/.rbenv")
+    post_external(rbenv_path, "git://github.com/sstephenson/rbenv.git")
+
+    # Ruby-build
     rbuild_path = File.expand_path("~/.rbenv/plugins/ruby-build")
-    if File.directory?(rbuild_path) &&  File.directory?(rbuild_path + "/.git")
-      system "cd #{rbuild_path}; git pull"
-    else
-      system "rm -r #{rbuild_path}; git clone git://github.com/sstephenson/ruby-build.git #{rbuild_path}"
-    end
+    post_external(rbuild_path, "git://github.com/sstephenson/ruby-build.git")
+
     puts "\n\n\n##################################################"
     puts "Now install your ruby using rbenv and after that, pow"
   end
