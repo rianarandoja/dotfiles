@@ -11,7 +11,7 @@ alias zshconfig="st -w ~/.zshrc; source ~/.zshrc"
 alias ohmyzsh="st -w ~/.oh-my-zsh; source ~/.zshrc"
 
 # Enable aliases to be sudo’ed
-alias sudo='sudo '
+alias sudo='command sudo '
 
 # Get OS X Software Updates, and update Homebrew, npm, and their installed packages
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; npm update npm -g; npm update -g'
