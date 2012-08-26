@@ -10,4 +10,5 @@ if [ -x `which brew` ]; then
   [ -d $(brew --prefix coreutils) ] && export PATH=$(brew --prefix coreutils)/bin:$PATH
   [ -d $(brew --prefix android) ] && export ANDROID_SDK_ROOT=$(brew --prefix android)
   [ -d $(brew --prefix python) ] && export PATH=/usr/local/share/python:$PATH
+  [ -d $(brew --prefix autojump) ] && export AUTOJUMP_KEEP_SYMLINKS=1
 fi

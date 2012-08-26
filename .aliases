@@ -87,4 +87,4 @@ alias hax="growlnotify -a 'Activity Monitor' 'System error' -m 'WTF R U DOIN'"
 
 # Silly git facts
 alias fact="elinks -dump randomfunfacts.com | sed -n '/^| /p' | tr -d \|"
-alias gc='fact && git commit -v'
+alias gc='git commit -v && fact'
