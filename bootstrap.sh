@@ -40,6 +40,7 @@ notice "Checking dependencies"
 dep "git"  "1.7"
 dep "ruby" "1.8"
 dep "tree" "1.5"
+dep "rake" "0.9"
 
 if [ "${#missing[@]}" -gt "0" ]; then
   error "Missing dependencies"
