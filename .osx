@@ -5,16 +5,16 @@
 ###############################################################################
 
 # Set computer name (as done via System Preferences → Sharing)
-scutil --set ComputerName "Thor"
-scutil --set HostName "Thor"
-scutil --set LocalHostName "Thor"
+#scutil --set ComputerName "Thor"
+#scutil --set HostName "Thor"
+#scutil --set LocalHostName "Thor"
 
 # Menu bar: disable transparency
 #defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
 
 # Menu bar: show remaining battery time (on pre-10.8); hide percentage
-#defaults write com.apple.menuextra.battery ShowPercent -string "NO"
-#defaults write com.apple.menuextra.battery ShowTime -string "YES"
+defaults write com.apple.menuextra.battery ShowPercent -string "NO"
+defaults write com.apple.menuextra.battery ShowTime -string "YES"
 
 # Menu bar: hide the useless Time Machine and Volume icons
 #defaults write com.apple.systemuiserver menuExtras -array "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" "/System/Library/CoreServices/Menu Extras/AirPort.menu" "/System/Library/CoreServices/Menu Extras/Battery.menu" "/System/Library/CoreServices/Menu Extras/Clock.menu"
@@ -75,9 +75,6 @@ defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
 #defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerHorizSwipeGesture -int 1
 #defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerHorizSwipeGesture -int 1
 
-# Disable “natural” (Lion-style) scrolling
-defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
-
 # Increase sound quality for Bluetooth headphones/headsets
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
 
@@ -106,10 +103,6 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 # Screen                                                                      #
 ###############################################################################
 
-# Require password immediately after sleep or screen saver begins
-#defaults write com.apple.screensaver askForPassword -int 1
-#defaults write com.apple.screensaver askForPasswordDelay -int 0
-
 # Save screenshots to the desktop
 defaults write com.apple.screencapture location -string "$HOME/Desktop"
 
@@ -118,9 +111,6 @@ defaults write com.apple.screencapture type -string "png"
 
 # Disable shadow in screenshots
 #defaults write com.apple.screencapture disable-shadow -bool true
-
-# Enable subpixel font rendering on non-Apple LCDs
-defaults write NSGlobalDomain AppleFontSmoothing -int 1
 
 ###############################################################################
 # Finder                                                                      #
@@ -389,6 +379,25 @@ hash tmutil &> /dev/null && sudo tmutil disablelocal
 #
 ## Hide the app in the background if it’s not the front-most window
 #defaults write com.twitter.twitter-mac HideInBackground -bool true
+
+# Desktop specifics
+if [[ `uname -n` == Thor ]]; then
+  # Disable “natural” (Lion-style) scrolling
+  defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+
+  # Enable subpixel font rendering on non-Apple LCDs
+  defaults write NSGlobalDomain AppleFontSmoothing -int 1
+fi
+
+# Macbook specifics
+if [[ `uname -n` == Mjolnir ]]; then
+  # Disable “natural” (Lion-style) scrolling
+  defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+
+  # Require password immediately after sleep or screen saver begins
+  defaults write com.apple.screensaver askForPassword -int 1
+  defaults write com.apple.screensaver askForPasswordDelay -int 0
+fi
 
 ###############################################################################
 # Kill affected applications                                                  #
