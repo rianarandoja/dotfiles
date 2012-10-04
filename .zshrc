@@ -24,6 +24,8 @@ plugins=(git autojump brew bundler encode64 extract gem heroku nyan osx pow powd
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 source $ZSH/oh-my-zsh.sh
 
+unsetopt correct_all
+
 source ~/.aliases
 source ~/.exports
 source ~/.functions
