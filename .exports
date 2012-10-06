@@ -9,6 +9,9 @@ if type brew &> /dev/null; then
   [ -d $(brew --prefix node) ] && export NODE_PATH=usr/local/lib/node_modules
   [ -d $(brew --prefix coreutils) ] && export PATH=$(brew --prefix coreutils)/bin:$PATH
   [ -d $(brew --prefix android) ] && export ANDROID_SDK_ROOT=$(brew --prefix android)
+  [ -d $(brew --prefix android) ] && export ANDROID_HOME=$(brew --prefix android)
   [ -d $(brew --prefix python) ] && export PATH=/usr/local/share/python:$PATH
   [ -d $(brew --prefix autojump) ] && export AUTOJUMP_KEEP_SYMLINKS=1
 fi
+
+export JAVA_HOME=$(/usr/libexec/java_home)
