@@ -18,7 +18,6 @@ $exclude = [
   '.',
   '..',
   '.git',
-  '.gitignore',
   'bootstrap.sh',
   'Gemfile',
   'Gemfile.lock',
