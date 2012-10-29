@@ -1,0 +1,2 @@
+# Flush DNS cache
+alias flushdns="sudo /etc/init.d/nscd restart"

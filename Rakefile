@@ -40,16 +40,9 @@ task :update do
 end
 
 desc 'Run all install tasks in order.'
-task :install => [ 'install:deps', 'install:copy', 'install:post' ]
+task :install => [ 'install:copy', 'install:post' ]
 
 namespace :install do
-
-  desc 'Check for and install required dependencies.'
-  task :deps do
-    puts 'Please install bundler and re-run installation. http://gembundler.com/' and exit 1 unless system 'which bundle'
-    system 'bundle install'
-  end
-
   desc 'Copy dotfiles over to home dir.'
   task :copy do
     entries.each do | file |
@@ -70,7 +63,7 @@ namespace :install do
     post_external(rbuild_path, "git://github.com/sstephenson/ruby-build.git")
 
     puts "\n\n\n##################################################"
-    puts "Now install your ruby using rbenv and after that, pow"
+    puts "Now install your ruby using rbenv"
   end
 
 end
