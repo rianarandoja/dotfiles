@@ -11,7 +11,7 @@ alias zshconfig="st -w ~/.zshrc; source ~/.zshrc"
 alias ohmyzsh="st -w ~/.oh-my-zsh; source ~/.zshrc"
 
 # Enable aliases to be sudo’ed
-alias sudo='command sudo '
+alias sudo="nocorrect sudo"
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
