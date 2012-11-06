@@ -44,7 +44,7 @@ function fetch_external {
 }
 
 function install {
-  rsync -rv --exclude '.git' --exclude 'bootstrap.sh' --exclude 'README.md' ./* ../
+  rsync -rv --exclude '.git' --exclude 'bootstrap.sh' --exclude 'README.md' --include '.**' ./ ../
 }
 
 function externals {
