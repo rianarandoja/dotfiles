@@ -1,15 +1,17 @@
+#!/usr/bin/env bash
+
 # --- Functions --- #
 # Notice title
-function notice { echo  "\033[1;32m=> $1\033[0m"; }
+function notice { echo -e "\033[1;32m=> $1\033[0m"; }
 
 # Error title
-function error { echo "\033[1;31m=> Error: $1\033[0m"; }
+function error { echo -e "\033[1;31m=> Error: $1\033[0m"; }
 
 # List item
-function c_list { echo  "  \033[1;32m✔\033[0m $1"; }
+function c_list { echo -e "  \033[1;32m✔\033[0m $1"; }
 
 # Error list item
-function e_list { echo  "  \033[1;31m✖\033[0m $1"; }
+function e_list { echo -e "  \033[1;31m✖\033[0m $1"; }
 
 # Check for dependency
 function dep {
@@ -31,6 +33,26 @@ function dep {
   fi
 }
 
+function fetch_external {
+  if [ -d $1 ]; then
+    cd $1
+    git pull
+  else
+    mkdir -p $1
+    git clone $2 $1
+  fi
+}
+
+function install {
+  rsync -rv --exclude '.git' --exclude 'bootstrap.sh' --exclude 'README.md' ./* ../
+}
+
+function externals {
+  fetch_external ~/.oh-my-zsh "git://github.com/robbyrussell/oh-my-zsh.git"
+  fetch_external ~/.rbenv "git://github.com/sstephenson/rbenv.git"
+  fetch_external ~/.rbenv/plugins/ruby-build "git://github.com/sstephenson/ruby-build.git"
+}
+
 # --- INIT --- #
 current_pwd=$(pwd)
 missing=()
@@ -38,9 +60,6 @@ missing=()
 # --- Check deps --- #
 notice "Checking dependencies"
 dep "git"  "1.7"
-dep "ruby" "1.8"
-dep "tree" "1.5"
-dep "rake" "0.9"
 
 if [ "${#missing[@]}" -gt "0" ]; then
   error "Missing dependencies"
@@ -52,25 +71,21 @@ fi
 
 # Assumes ~/.dotfiles is *ours*
 if [ -d ~/.dotfiles ]; then
-  # --- Update Repo --- #
   notice "Updating"
   cd ~/.dotfiles
   git pull origin master
 
-  # --- Install --- #
   notice "Installing"
-  rake install
 else
-  # --- Clone Repo --- #
   notice "Downloading"
   git clone --recursive git://github.com/krisrang/dotfiles.git ~/.dotfiles
 
-  # --- Install --- #
   notice "Installing"
   cd ~/.dotfiles
-  rake backup
-  rake install
 fi
+
+install
+externals
 
 # --- Finished --- #
 cd $current_pwd
