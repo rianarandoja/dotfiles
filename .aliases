@@ -7,6 +7,8 @@ alias oo="open ."
 alias stt="st ."
 alias js="autojump --stat"
 
+alias gst="git status -sb"
+
 alias zshconfig="st -w ~/.zshrc; source ~/.zshrc"
 alias ohmyzsh="st -w ~/.oh-my-zsh; source ~/.zshrc"
 
