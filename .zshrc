@@ -25,9 +25,9 @@ elif [[ "$unamestr" == 'Darwin' ]]; then
 fi
 
 if [[ $platform == 'linux' ]]; then
-  plugins=(git autojump encode64 extract gem rails3 rake rbenv)
+  plugins=(git autojump encode64 extract gem rails3 rake rbenv bundler)
 elif [[ $platform == 'darwin' ]]; then
-  plugins=(git autojump brew encode64 extract gem heroku nyan osx pow powder rails3 rake rbenv terminalapp)
+  plugins=(git autojump brew encode64 extract gem heroku nyan osx pow powder rails3 rake rbenv terminalapp bundler)
 fi
 
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
