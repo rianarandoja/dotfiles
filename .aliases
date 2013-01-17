@@ -8,6 +8,7 @@ alias stt="st ."
 alias js="autojump --stat"
 alias lsa="ls -al"
 
+alias ga="git add"
 alias gst="git status -sb"
 
 alias zshconfig="st -w ~/.zshrc; source ~/.zshrc"
