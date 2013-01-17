@@ -1,5 +1,6 @@
 # Make sublime text the default editor
 export EDITOR="st -w"
+export VISUAL="st -w"
 
 if type brew &> /dev/null; then
   [ -d $(brew --prefix node) ] && export NODE_PATH=usr/local/lib/node_modules

@@ -1,20 +1,15 @@
-ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="muse"
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
 
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
 
-# Comment this out to disable weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-COMPLETION_WAITING_DOTS="true"
 
 platform='unknown'
 unamestr=`uname`
@@ -24,22 +19,12 @@ elif [[ "$unamestr" == 'Darwin' ]]; then
    platform='darwin'
 fi
 
-if [[ $platform == 'linux' ]]; then
-  plugins=(git autojump encode64 extract gem rails3 rake rbenv bundler)
-elif [[ $platform == 'darwin' ]]; then
-  plugins=(git autojump brew encode64 extract gem heroku nyan osx pow powder rails3 rake rbenv terminalapp bundler)
-fi
-
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
-source $ZSH/oh-my-zsh.sh
-
-unsetopt correct_all
 
 # Load general files
 source ~/.aliases
 source ~/.exports
 source ~/.functions
-source ~/.theme
 
 # Load platform specific files
 if [[ $platform == 'linux' ]]; then
