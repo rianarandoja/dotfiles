@@ -18,7 +18,7 @@ elif [[ "$unamestr" == 'Darwin' ]]; then
    platform='darwin'
 fi
 
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
+export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 
 # Load general files
 source ~/.aliases
