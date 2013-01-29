@@ -44,20 +44,28 @@ function fetch_external {
 }
 
 function install {
+  notice "Copying dotfiles"
   rsync -rv --exclude '.git' --exclude 'bin' --exclude 'bootstrap.sh' --exclude 'README.md' --include '.**' ./ ~/
   rsync -rv --include '.**' ./bin/ /usr/local/bin/
 }
 
 function externals {
   if [ ! -d "${ZDOTDIR:-$HOME}/.zprezto" ]; then
+    notice "Installing zprezto"
     git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 
     setopt EXTENDED_GLOB
     for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
       ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
     done
+  else
+    notice "Updating zprezto"
+    cd "${ZDOTDIR:-$HOME}/.zprezto"
+    git pull
+    cd ~
   fi
 
+  notice "Updating externals"
   fetch_external ~/.rbenv "git://github.com/sstephenson/rbenv.git"
   fetch_external ~/.rbenv/plugins/ruby-build "git://github.com/sstephenson/ruby-build.git"
   fetch_external ~/.rbenv/plugins/rbenv-vars "git://github.com/sstephenson/rbenv-vars.git"
