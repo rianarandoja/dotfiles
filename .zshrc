@@ -32,6 +32,8 @@ plugins=(autojump brew bundler encode64 extract git github heroku knife nyan osx
 
 source $ZSH/oh-my-zsh.sh
 
+unsetopt correct_all
+
 platform='unknown'
 unamestr=`uname`
 if [[ "$unamestr" == 'Linux' ]]; then
