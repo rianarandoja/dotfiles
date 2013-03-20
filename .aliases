@@ -1,3 +1,7 @@
+unalias rm
+
+alias rm="nocorrect rm"
+
 # Shortcuts
 alias c="cd ~/Code"
 alias g="git"
