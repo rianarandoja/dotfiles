@@ -35,7 +35,7 @@ elif [[ $platform == 'darwin' ]]; then
 fi
 
 # Set up bundler integration
-bundled_commands=(annotate cap capify cucumber foreman guard middleman nanoc rackup rainbows rake rspec ruby shotgun spec spork thin thor unicorn unicorn_rails puma zeus knife)
+bundled_commands=(annotate cap capify cucumber foreman guard middleman nanoc rackup rainbows rake rspec ruby shotgun spec spork thin thor unicorn unicorn_rails puma zeus)
 
 _bundler-installed() {
   which bundle > /dev/null 2>&1
