@@ -113,8 +113,8 @@ else
   cd ~/.dotfiles
 fi
 
-install
 externals
+install
 
 # --- Finished --- #
 cd $current_pwd
