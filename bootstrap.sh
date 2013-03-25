@@ -46,7 +46,6 @@ function fetch_external {
 function install {
   notice "Copying dotfiles"
   rsync -rv --exclude '.git' --exclude 'bin' --exclude 'bootstrap.sh' --exclude 'README.md' --include '.**' ./ ~/
-  rsync -rv --include '.**' ./bin/ /usr/local/bin/
 }
 
 function externals {
