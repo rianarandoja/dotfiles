@@ -1,4 +1,7 @@
-#!/usr/bin/env zsh
+#!/bin/zsh
+
+norbenv=$1
+root=$PWD
 
 # --- Functions --- #
 # Notice title
@@ -45,6 +48,7 @@ function fetch_external {
 
 function install {
   notice "Copying dotfiles"
+  cd $root
   rsync -rv --exclude '.git' --exclude 'bin' --exclude 'bootstrap.sh' --exclude 'README.md' --include '.**' ./ ~/
 }
 
@@ -74,11 +78,13 @@ function externals {
   #   cd ~
   # fi
 
-  notice "Updating externals"
-  fetch_external ~/.rbenv "git://github.com/sstephenson/rbenv.git"
-  fetch_external ~/.rbenv/plugins/ruby-build "git://github.com/sstephenson/ruby-build.git"
-  fetch_external ~/.rbenv/plugins/rbenv-vars "git://github.com/sstephenson/rbenv-vars.git"
-  fetch_external ~/.rbenv/plugins/rbenv-sudo "git://github.com/dcarley/rbenv-sudo.git"
+  if [ $norbenv != "skip-rbenv" ]; then
+    notice "Updating rbenv"
+    fetch_external ~/.rbenv "git://github.com/sstephenson/rbenv.git"
+    fetch_external ~/.rbenv/plugins/ruby-build "git://github.com/sstephenson/ruby-build.git"
+    fetch_external ~/.rbenv/plugins/rbenv-vars "git://github.com/sstephenson/rbenv-vars.git"
+    fetch_external ~/.rbenv/plugins/rbenv-sudo "git://github.com/dcarley/rbenv-sudo.git"
+  fi
 }
 
 # --- INIT --- #
