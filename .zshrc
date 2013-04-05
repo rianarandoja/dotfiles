@@ -1,14 +1,9 @@
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
-
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
+
+autoload zmv
 
 # Determine platform
 platform='unknown'
@@ -35,7 +30,7 @@ elif [[ $platform == 'darwin' ]]; then
 fi
 
 # Set up bundler integration
-bundled_commands=(annotate cap capify cucumber foreman guard middleman nanoc rackup rainbows rake rspec ruby shotgun spec spork thin thor unicorn unicorn_rails puma zeus)
+bundled_commands=(annotate cap capify cucumber foreman guard middleman nanoc rackup rainbows rake rspec ruby shotgun spec spork thin thor unicorn unicorn_rails puma)
 
 _bundler-installed() {
   which bundle > /dev/null 2>&1
