@@ -3,8 +3,6 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-autoload zmv
-
 # Determine platform
 platform='unknown'
 unamestr=`uname`
