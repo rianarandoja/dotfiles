@@ -133,7 +133,7 @@ function json() {
 
 # All the dig info
 function digga() {
-  dig +nocmd "$1" any +multiline +noall +answer
+  dig +nocmd "$1" +multiline +noall +answer
 }
 
 # Escape UTF-8 characters into their 3-byte format
