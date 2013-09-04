@@ -19,14 +19,6 @@ source ~/.aliases
 source ~/.exports
 source ~/.functions
 
-# Load platform specific files
-if [[ $platform == 'linux' ]]; then
-  source ~/.aliases.linux
-elif [[ $platform == 'darwin' ]]; then
-  source ~/.aliases.darwin
-  source ~/.exports.darwin
-fi
-
 # Set up bundler integration
 bundled_commands=(annotate cap capify cucumber foreman guard middleman nanoc rackup rainbows rake rspec ruby shotgun spec spork thin thor unicorn unicorn_rails puma)
 

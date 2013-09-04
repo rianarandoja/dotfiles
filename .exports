@@ -1,8 +1,15 @@
-# Make sublime text the default editor
-export EDITOR="nano"
+# Prefer US English and use UTF-8
+export LANG="en_US"
+export LC_ALL="en_US.UTF-8"
 
 # Don’t clear the screen after quitting a manual page
 export MANPAGER="less -X"
+
+# Always enable colored `grep` output
+export GREP_OPTIONS="--color=auto"
+
+# Link Homebrew casks in `/Applications` rather than `~/Applications`
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # Highlight section titles in manual pages
 export LESS_TERMCAP_md="$ORANGE"
@@ -12,3 +19,19 @@ export RUBY_HEAP_SLOTS_INCREMENT=1000000
 export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
 export RUBY_GC_MALLOC_LIMIT=100000000
 export RUBY_HEAP_FREE_MIN=500000
+
+# Make sublime text the default editor
+export EDITOR="st -w"
+export VISUAL="st -w"
+
+if type brew &> /dev/null; then
+  [ -d $(brew --prefix node) ] && export NODE_PATH=usr/local/lib/node_modules
+  [ -d $(brew --prefix coreutils) ] && export PATH=$(brew --prefix coreutils)/bin:$PATH
+  [ -d $(brew --prefix android) ] && export ANDROID_SDK_ROOT=$(brew --prefix android)
+  [ -d $(brew --prefix android) ] && export ANDROID_HOME=$(brew --prefix android)
+  [ -d $(brew --prefix autojump) ] && . `brew --prefix`/etc/autojump.sh && export AUTOJUMP_KEEP_SYMLINKS=1
+fi
+
+export PATH=~/Code/go/bin:/usr/local/share/npm/bin:$PATH
+export JAVA_HOME=$(/usr/libexec/java_home)
+export GOPATH=~/Code/go
