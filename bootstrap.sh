@@ -53,30 +53,30 @@ function install {
 }
 
 function externals {
-  if [ ! -d "${ZDOTDIR:-$HOME}/.zprezto" ]; then
-    notice "Installing zprezto"
-    git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+  # if [ ! -d "${ZDOTDIR:-$HOME}/.zprezto" ]; then
+  #   notice "Installing zprezto"
+  #   git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 
-    setopt EXTENDED_GLOB
-    for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-      ln -nsf "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-    done
-  else
-    notice "Updating zprezto"
-    cd "${ZDOTDIR:-$HOME}/.zprezto"
-    git pull
-    cd ~
-  fi
-
-  # if [ ! -d "${ZDOTDIR:-$HOME}/.oh-my-zsh" ]; then
-  #   notice "Installing oh-my-zsh"
-  #   git clone --recursive git://github.com/robbyrussell/oh-my-zsh.git "${ZDOTDIR:-$HOME}/.oh-my-zsh"
+  #   setopt EXTENDED_GLOB
+  #   for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+  #     ln -nsf "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+  #   done
   # else
-  #   notice "Updating oh-my-zsh"
-  #   cd "${ZDOTDIR:-$HOME}/.oh-my-zsh"
+  #   notice "Updating zprezto"
+  #   cd "${ZDOTDIR:-$HOME}/.zprezto"
   #   git pull
   #   cd ~
   # fi
+
+  if [ ! -d "${ZDOTDIR:-$HOME}/.oh-my-zsh" ]; then
+    notice "Installing oh-my-zsh"
+    git clone --recursive git://github.com/robbyrussell/oh-my-zsh.git "${ZDOTDIR:-$HOME}/.oh-my-zsh"
+  else
+    notice "Updating oh-my-zsh"
+    cd "${ZDOTDIR:-$HOME}/.oh-my-zsh"
+    git pull
+    cd ~
+  fi
 
   if [ $norbenv != "skip-rbenv" ]; then
     notice "Updating rbenv"
