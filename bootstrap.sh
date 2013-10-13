@@ -84,6 +84,7 @@ function externals {
     fetch_external ~/.rbenv/plugins/ruby-build "git://github.com/sstephenson/ruby-build.git"
     fetch_external ~/.rbenv/plugins/rbenv-vars "git://github.com/sstephenson/rbenv-vars.git"
     fetch_external ~/.rbenv/plugins/rbenv-sudo "git://github.com/dcarley/rbenv-sudo.git"
+    fetch_external ~/.rbenv/plugins/rbenv-gem-rehash "https://github.com/sstephenson/rbenv-gem-rehash.git"
   fi
 }
 
