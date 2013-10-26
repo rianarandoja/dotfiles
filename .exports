@@ -34,5 +34,4 @@ fi
 
 export JAVA_HOME=$(/usr/libexec/java_home)
 export PATH=~/Code/gosrc/bin:~/Code/go/bin:/usr/local/share/npm/bin:$PATH
-export GOROOT=~/Code/gosrc
 export GOPATH=~/Code/go
