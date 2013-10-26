@@ -14,7 +14,7 @@ brew install coreutils
 brew install findutils
 brew install bash
 brew install zsh
-
+brew install autojump
 # Install wget with IRI support
 brew install wget --enable-iri
 
@@ -45,6 +45,14 @@ installcask imageoptim
 installcask iterm2
 installcask miro-video-converter
 installcask transmission
+installcask alfred
+installcask geekbench
+installcask sublime-text-3
+installcask you-need-a-budget
+installcask google-drive
+installcask picard
+installcask tagr
+installcask trim-enabler
 
 # Remove outdated versions from the cellar
 brew cleanup
