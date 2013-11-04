@@ -29,6 +29,7 @@ brew install lynx
 brew install node
 brew install rename
 brew install tree
+brew install htop
 
 # Install native apps
 brew tap phinze/homebrew-cask
