@@ -32,6 +32,7 @@ brew install tree
 
 # Install native apps
 brew tap phinze/homebrew-cask
+brew tap caskroom/versions
 brew install brew-cask
 brew cask alfred link
 
@@ -48,12 +49,13 @@ installcask transmission
 installcask alfred
 installcask geekbench
 installcask sublime-text-3
-installcask you-need-a-budget
+installcask ynab
 installcask google-drive
 installcask picard
 installcask tagr
 installcask trim-enabler
 installcask skype
+installcask google-chrome-canary
 
 # Remove outdated versions from the cellar
 brew cleanup
