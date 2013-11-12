@@ -42,7 +42,7 @@ source $ZSH/oh-my-zsh.sh
 
 unsetopt correct_all
 
-export PATH=/usr/local/sbin:/usr/local/bin:$PATH
+export PATH=~/bin:/usr/local/sbin:/usr/local/bin:$PATH
 
 # Load general files
 source ~/.aliases

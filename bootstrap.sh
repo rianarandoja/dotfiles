@@ -49,7 +49,7 @@ function fetch_external {
 function install {
   notice "Copying dotfiles"
   cd $root
-  rsync -rv --exclude '.git' --exclude 'bin' --exclude 'bootstrap.sh' --exclude 'README.md' --include '.**' ./ ~/
+  rsync -rv --exclude '.git' --exclude 'bootstrap.sh' --exclude 'README.md' --include '.**' ./ ~/
 }
 
 function externals {
