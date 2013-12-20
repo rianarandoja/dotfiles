@@ -36,13 +36,13 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(rbenv autojump brew bundler encode64 extract git github heroku nyan osx pow powder rake screen vagrant history-substring-search)
+plugins=(rbenv autojump brew encode64 extract git github heroku nyan osx rake screen vagrant history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 
 unsetopt correct_all
 
-export PATH=~/bin:/usr/local/sbin:/usr/local/bin:$PATH
+export PATH=./bin:~/bin:/usr/local/sbin:/usr/local/bin:$PATH
 
 # Load general files
 source ~/.aliases
