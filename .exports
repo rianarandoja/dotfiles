@@ -19,7 +19,6 @@ export EDITOR="st -w"
 export VISUAL="st -w"
 
 if type brew &> /dev/null; then
-  [ -d $(brew --prefix node) ] && export NODE_PATH=/usr/local/lib/node_modules
   [ -d $(brew --prefix coreutils) ] && export PATH=$(brew --prefix coreutils)/bin:$PATH
   [ -d $(brew --prefix android) ] && export ANDROID_SDK_ROOT=$(brew --prefix android)
   [ -d $(brew --prefix android) ] && export ANDROID_HOME=$(brew --prefix android)
@@ -27,7 +26,5 @@ if type brew &> /dev/null; then
 fi
 
 export JAVA_HOME=$(/usr/libexec/java_home)
-export PATH=~/Code/gosrc/bin:~/Code/go/bin:/usr/local/share/npm/bin:$PATH
+export PATH=~/Code/gosrc/bin:$PATH
 export GOPATH=~/Code/go
-
-export RUBY_GC_MALLOC_LIMIT=50000000
