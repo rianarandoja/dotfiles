@@ -12,8 +12,8 @@ export GREP_OPTIONS="--color=auto"
 export LESS_TERMCAP_md="$ORANGE"
 
 # Make sublime text the default editor
-export EDITOR="atom -w"
-export VISUAL="atom -w"
+export EDITOR="st -w"
+export VISUAL="st -w"
 
 if type brew &> /dev/null; then
   [ -d $(brew --prefix coreutils) ] && export PATH=$(brew --prefix coreutils)/bin:$PATH
