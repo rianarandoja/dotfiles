@@ -8,15 +8,17 @@ brew upgrade
 
 # Taps
 brew tap homebrew/dupes
-brew tap josegonzalez/homebrew-php
+brew tap homebrew/versions
+brew tap homebrew/homebrew-php
 
 brew install coreutils
 brew install findutils
 brew install bash
 brew install zsh
 brew install autojump
+
 # Install wget with IRI support
-brew install wget --enable-iri
+brew install wget --with-iri
 
 # More recent grep
 brew install homebrew/dupes/grep
@@ -30,33 +32,8 @@ brew install node
 brew install rename
 brew install tree
 brew install htop
-
-# Install native apps
-brew tap phinze/homebrew-cask
-brew tap caskroom/versions
-brew install brew-cask
-brew cask alfred link
-
-function installcask() {
-  brew cask install "${@}" 2> /dev/null
-}
-
-installcask dropbox
-installcask imagealpha
-installcask imageoptim
-installcask iterm2
-installcask miro-video-converter
-installcask transmission
-installcask alfred
-installcask geekbench
-installcask sublime-text-3
-installcask ynab
-installcask google-drive
-installcask picard
-installcask tagr
-installcask trim-enabler
-installcask skype
-installcask google-chrome-canary
+brew install php56 --with-fpm  --with-imap  --without-apache --with-debug
+brew install nginx --with-spdy
 
 # Remove outdated versions from the cellar
 brew cleanup
