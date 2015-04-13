@@ -150,3 +150,5 @@ alias hax="growlnotify -a 'Activity Monitor' 'System error' -m 'WTF R U DOIN'"
 alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
 
 alias srct="open -a /Applications/SourceTree.app ."
+
+[[ -a $HOME/.dokku/contrib/dokku_client.sh ]] && alias dokku='$HOME/.dokku/contrib/dokku_client.sh'
