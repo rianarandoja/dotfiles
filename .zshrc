@@ -81,5 +81,5 @@ unsetopt correct_all
 source ~/.aliases
 source ~/.exports
 source ~/.functions
-
+source ~/.iterm.zsh
 unalias gm
