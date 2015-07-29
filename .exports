@@ -23,5 +23,5 @@ if type brew &> /dev/null; then
 fi
 
 export JAVA_HOME=$(/usr/libexec/java_home)
-export PATH=~/Code/gosrc/bin:$PATH
+export PATH=~/Code/go/bin:$PATH
 export GOPATH=~/Code/go
