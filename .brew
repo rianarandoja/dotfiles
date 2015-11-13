@@ -9,7 +9,6 @@ brew upgrade
 # Taps
 brew tap homebrew/dupes
 brew tap homebrew/versions
-brew tap homebrew/homebrew-php
 
 brew install coreutils
 brew install findutils
@@ -27,13 +26,9 @@ brew install homebrew/dupes/grep
 brew install ack
 brew install git
 brew install imagemagick --with-little-cms --with-librsvg
-brew install lynx
 brew install node
-brew install rename
 brew install tree
 brew install htop
-brew install php56 --with-fpm  --with-imap  --without-apache --with-debug
-brew install nginx --with-spdy
 
 # Remove outdated versions from the cellar
 brew cleanup
