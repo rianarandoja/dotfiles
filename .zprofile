@@ -7,4 +7,6 @@ export PATH=~/Code/go/bin:/usr/local/share/npm/bin:~/.rbenv/bin:/usr/local/sbin:
 
 export RUBY_GC_MALLOC_LIMIT=50000000
 
-eval "$(rbenv init --no-rehash - zsh)"
+if type rbenv &> /dev/null; then
+  eval "$(rbenv init --no-rehash - zsh)"
+fi
