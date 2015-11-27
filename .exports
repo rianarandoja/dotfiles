@@ -22,7 +22,7 @@ if type brew &> /dev/null; then
   [ -d $(brew --prefix autojump) ] && . `brew --prefix`/etc/autojump.sh && export AUTOJUMP_KEEP_SYMLINKS=1
 fi
 
-if [ $(uname) == "Darwin" ]; then
+if [[ $(uname) == "Darwin" ]]; then
   export JAVA_HOME=$(/usr/libexec/java_home)
   export PATH=~/Code/go/bin:$PATH
   export GOPATH=~/Code/go
