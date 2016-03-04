@@ -192,3 +192,5 @@ function unquarantine() {
     xattr -r -d "$attribute" "$@"
   done
 }
+
+function code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args "$@"; }
