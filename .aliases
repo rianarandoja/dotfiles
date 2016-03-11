@@ -25,6 +25,8 @@ alias gcan='git commit --amend --no-edit'
 alias bcs="brew cask search"
 alias bci="brew cask install"
 
+alias sshh="ssh -oUserKnownHostsFile=/dev/null -oStrictHostKeyChecking=no"
+
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
   colorflag="--color"
