@@ -20,7 +20,9 @@ alias gst="git status"
 alias ga="git add"
 alias gp="git push"
 alias gfr="git fetch; git rebase"
-alias gcan='git commit --amend --no-edit'
+alias gca='git commit -v -a -S'
+alias gcan='git commit -v -a --amend -S'
+alias gcan!='git commit --amend --no-edit - S'
 
 alias bcs="brew cask search"
 alias bci="brew cask install"
