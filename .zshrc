@@ -81,5 +81,6 @@ unsetopt correct_all
 source ~/.aliases
 source ~/.exports
 source ~/.functions
-source ~/.iterm.zsh
 unalias gm
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

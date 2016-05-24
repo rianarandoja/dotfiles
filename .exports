@@ -6,7 +6,7 @@ export LC_ALL="en_US.UTF-8"
 export MANPAGER="less -X"
 
 # Always enable colored `grep` output
-if [[ `hostname -s` == "Kaminari" ]]; then
+if [[ $(uname) == "Darwin" ]]; then
   export GREP_OPTIONS="--color=auto"
 fi
 
@@ -29,3 +29,6 @@ if [[ $(uname) == "Darwin" ]]; then
   export PATH=~/Code/go/bin:$PATH
   export GOPATH=~/Code/go
 fi
+
+export DOKKU_HOST=dokku
+export DOKKU_PORT=2341
