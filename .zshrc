@@ -45,7 +45,7 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(autojump brew encode64 extract git github heroku nyan osx rake screen vagrant history-substring-search)
+plugins=(autojump brew encode64 extract git github heroku nyan osx rake history-substring-search boot2docker ubuntu)
 
 source $ZSH/oh-my-zsh.sh
 
