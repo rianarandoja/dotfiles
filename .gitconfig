@@ -9,7 +9,7 @@
 [user]
 	name = Kristjan Rang
 	email = mail@rang.ee
-  signingkey = FAAEF2BB
+  signingkey = 2704C611
 
 [alias]
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
