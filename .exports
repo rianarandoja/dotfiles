@@ -14,8 +14,12 @@ fi
 export LESS_TERMCAP_md="$ORANGE"
 
 # Make sublime text the default editor
-export EDITOR="st -w"
-export VISUAL="st -w"
+if [[ $(uname) == "Darwin" ]]; then
+  export EDITOR="st -w"
+  export VISUAL="st -w"
+else
+  export EDITOR="nano"
+fi
 
 if type brew &> /dev/null; then
   [ -d $(brew --prefix coreutils) ] && export PATH=$(brew --prefix coreutils)/bin:$PATH

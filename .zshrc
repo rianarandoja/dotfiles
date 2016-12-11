@@ -47,12 +47,12 @@ HIST_STAMPS="dd.mm.yyyy"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(autojump brew encode64 extract git github heroku nyan osx rake history-substring-search boot2docker ubuntu)
 
+export PATH=$HOME/bin:$PATH
+# export MANPATH="/usr/local/man:$MANPATH"
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-# export MANPATH="/usr/local/man:$MANPATH"
 
 unsetopt correct_all
 
