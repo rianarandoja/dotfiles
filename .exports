@@ -2,6 +2,12 @@
 export LANG="en_US"
 export LC_ALL="en_US.UTF-8"
 
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+export SSH_KEY_PATH="~/.ssh/id_rsa"
+
 # Don’t clear the screen after quitting a manual page
 export MANPAGER="less -X"
 
@@ -13,27 +19,20 @@ fi
 # Highlight section titles in manual pages
 export LESS_TERMCAP_md="$ORANGE"
 
-# Make sublime text the default editor
-if [[ $(uname) == "Darwin" ]]; then
+# Set editor
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR="nano"
+else
   export EDITOR="st -w"
   export VISUAL="st -w"
-else
-  export EDITOR="nano"
 fi
 
-if type brew &> /dev/null; then
-  [ -d $(brew --prefix coreutils) ] && export PATH=$(brew --prefix coreutils)/bin:$PATH
-  [ -d $(brew --prefix android) ] && export ANDROID_SDK_ROOT=$(brew --prefix android)
-  [ -d $(brew --prefix android) ] && export ANDROID_HOME=$(brew --prefix android)
-  [ -d $(brew --prefix autojump) ] && . `brew --prefix`/etc/autojump.sh && export AUTOJUMP_KEEP_SYMLINKS=1
-  [ -d $(brew --prefix byobu) ] && export BYOBU_PREFIX=$(brew --prefix byobu)
-fi
+export BYOBU_PREFIX=/usr/local
 
 if [[ $(uname) == "Darwin" ]]; then
-  export JAVA_HOME=$(/usr/libexec/java_home)
-  export PATH=~/Code/go/bin:$PATH
-  export GOPATH=~/Code/go
+  [ -d /usr/local/opt/coreutils/libexec/gnubin ] && export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+  [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+  [ -f /usr/libexec/java_home ] && export JAVA_HOME=$(/usr/libexec/java_home)
+  [ -d ~/Code/go ] && export PATH=~/Code/go/bin:$PATH
+  [ -d ~/Code/go ] && export GOPATH=~/Code/go
 fi
-
-export DOKKU_HOST=dokku
-export DOKKU_PORT=2341

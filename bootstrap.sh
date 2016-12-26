@@ -53,21 +53,6 @@ function install {
 }
 
 function externals {
-  # if [ ! -d "${ZDOTDIR:-$HOME}/.zprezto" ]; then
-  #   notice "Installing zprezto"
-  #   git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-
-  #   setopt EXTENDED_GLOB
-  #   for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-  #     ln -nsf "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-  #   done
-  # else
-  #   notice "Updating zprezto"
-  #   cd "${ZDOTDIR:-$HOME}/.zprezto"
-  #   git pull
-  #   cd ~
-  # fi
-
   if [ ! -d "${ZDOTDIR:-$HOME}/.oh-my-zsh" ]; then
     notice "Installing oh-my-zsh"
     git clone --recursive git://github.com/robbyrussell/oh-my-zsh.git "${ZDOTDIR:-$HOME}/.oh-my-zsh"
@@ -78,13 +63,13 @@ function externals {
     cd ~
   fi
 
+  fetch_external ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting "https://github.com/zsh-users/zsh-syntax-highlighting.git"
+
   if [ $norbenv != "skip-rbenv" ]; then
     notice "Updating rbenv"
     fetch_external ~/.rbenv "git://github.com/sstephenson/rbenv.git"
     fetch_external ~/.rbenv/plugins/ruby-build "git://github.com/sstephenson/ruby-build.git"
     fetch_external ~/.rbenv/plugins/rbenv-vars "git://github.com/sstephenson/rbenv-vars.git"
-    fetch_external ~/.rbenv/plugins/rbenv-sudo "git://github.com/dcarley/rbenv-sudo.git"
-    fetch_external ~/.rbenv/plugins/rbenv-gem-rehash "https://github.com/sstephenson/rbenv-gem-rehash.git"
   fi
 }
 
@@ -94,7 +79,7 @@ missing=()
 
 # --- Check deps --- #
 notice "Checking dependencies"
-dep "git"  "1.7"
+dep "git" "1.7"
 
 if [ "${#missing[@]}" -gt "0" ]; then
   error "Missing dependencies"
