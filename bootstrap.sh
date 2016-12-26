@@ -1,7 +1,7 @@
 #!/bin/zsh
 
-norbenv=$1
-root=$PWD
+dorbenv=$1
+root=~/.dotfiles/
 
 # --- Functions --- #
 # Notice title
@@ -9,9 +9,6 @@ function notice { echo -e "\033[1;32m=> $1\033[0m"; }
 
 # Error title
 function error { echo -e "\033[1;31m=> Error: $1\033[0m"; }
-
-# List item
-function c_list { echo -e "  \033[1;32m✔\033[0m $1"; }
 
 # Error list item
 function e_list { echo -e "  \033[1;31m✖\033[0m $1"; }
@@ -35,46 +32,7 @@ function dep {
     missing+=($msg)
   fi
 }
-
-function fetch_external {
-  if [ -d $1 ]; then
-    cd $1
-    git pull
-  else
-    mkdir -p $1
-    git clone $2 $1
-  fi
-}
-
-function install {
-  notice "Copying dotfiles"
-  cd $root
-  rsync -rv --exclude '.git' --exclude 'bootstrap.sh' --exclude 'README.md' --include '.**' ./ ~/
-}
-
-function externals {
-  if [ ! -d "${ZDOTDIR:-$HOME}/.oh-my-zsh" ]; then
-    notice "Installing oh-my-zsh"
-    git clone --recursive git://github.com/robbyrussell/oh-my-zsh.git "${ZDOTDIR:-$HOME}/.oh-my-zsh"
-  else
-    notice "Updating oh-my-zsh"
-    cd "${ZDOTDIR:-$HOME}/.oh-my-zsh"
-    git pull
-    cd ~
-  fi
-
-  fetch_external ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting "https://github.com/zsh-users/zsh-syntax-highlighting.git"
-
-  if [ $norbenv != "skip-rbenv" ]; then
-    notice "Updating rbenv"
-    fetch_external ~/.rbenv "git://github.com/sstephenson/rbenv.git"
-    fetch_external ~/.rbenv/plugins/ruby-build "git://github.com/sstephenson/ruby-build.git"
-    fetch_external ~/.rbenv/plugins/rbenv-vars "git://github.com/sstephenson/rbenv-vars.git"
-  fi
-}
-
 # --- INIT --- #
-current_pwd=$(pwd)
 missing=()
 
 # --- Check deps --- #
@@ -89,24 +47,12 @@ if [ "${#missing[@]}" -gt "0" ]; then
   exit 1
 fi
 
-# Assumes ~/.dotfiles is *ours*
-if [ -d ~/.dotfiles ]; then
-  notice "Updating"
-  cd ~/.dotfiles
+if [ -f ./install.sh ]; then
+  notice "Installing"
+  cd $root
   git pull origin master
-
-  notice "Installing"
-else
-  notice "Downloading"
-  git clone --recursive git://github.com/krisrang/dotfiles.git ~/.dotfiles
-
-  notice "Installing"
-  cd ~/.dotfiles
+  ./install.sh $dorbenv
 fi
 
-externals
-install
-
 # --- Finished --- #
-cd $current_pwd
 notice "Done"
