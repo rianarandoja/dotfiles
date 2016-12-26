@@ -27,12 +27,11 @@ else
   export VISUAL="st -w"
 fi
 
-export BYOBU_PREFIX=/usr/local
-
 if [[ $(uname) == "Darwin" ]]; then
   [ -d /usr/local/opt/coreutils/libexec/gnubin ] && export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
   [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
   [ -f /usr/libexec/java_home ] && export JAVA_HOME=$(/usr/libexec/java_home)
   [ -d ~/Code/go ] && export PATH=~/Code/go/bin:$PATH
   [ -d ~/Code/go ] && export GOPATH=~/Code/go
+  export BYOBU_PREFIX=/usr/local
 fi
