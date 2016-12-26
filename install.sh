@@ -36,7 +36,7 @@ function externals {
 
   fetch_external ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting "https://github.com/zsh-users/zsh-syntax-highlighting.git"
 
-  if [ $dorbenv != "skip-rbenv" ]; then
+  if [ ! -z "$dorbenv" ]; then
     notice "Updating rbenv"
     fetch_external ~/.rbenv "git://github.com/sstephenson/rbenv.git"
     fetch_external ~/.rbenv/plugins/ruby-build "git://github.com/sstephenson/ruby-build.git"
