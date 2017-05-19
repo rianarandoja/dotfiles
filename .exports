@@ -31,7 +31,12 @@ if [[ $(uname) == "Darwin" ]]; then
   [ -d /usr/local/opt/coreutils/libexec/gnubin ] && export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
   [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
   [ -f /usr/libexec/java_home ] && export JAVA_HOME=$(/usr/libexec/java_home)
+  [ -d /usr/local/opt/yarn ] && export PATH="$PATH:`yarn global bin`"
   [ -d ~/Code/go ] && export PATH=~/Code/go/bin:$PATH
   [ -d ~/Code/go ] && export GOPATH=~/Code/go
+  source $(brew --prefix autoenv)/activate.sh
   export BYOBU_PREFIX=/usr/local
 fi
+
+[[ -a $HOME/.dokku/contrib/dokku_client.sh ]] && export DOKKU_HOST='dokku'
+[[ -a $HOME/.dokku/contrib/dokku_client.sh ]] && export DOKKU_PORT='2341'

@@ -156,3 +156,4 @@ alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v exten
 alias srct="open -a /Applications/SourceTree.app ."
 
 [[ -a $HOME/.dokku/contrib/dokku_client.sh ]] && alias dokku='bash $HOME/.dokku/contrib/dokku_client.sh'
+
