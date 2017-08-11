@@ -24,8 +24,8 @@ export LESS_TERMCAP_md="$ORANGE"
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR="nano"
 else
-  export EDITOR="st -w"
-  export VISUAL="st -w"
+  export EDITOR="code --wait"
+  export VISUAL="code --wait"
 fi
 
 if [[ $(uname) == "Darwin" ]]; then
