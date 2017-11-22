@@ -51,7 +51,7 @@ HIST_STAMPS="dd.mm.yyyy"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(autojump encode64 extract git nyan zsh-syntax-highlighting history-substring-search)
 
-export PATH=$HOME/bin:$PATH
+export PATH=.git/safe/../../bin:$HOME/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
