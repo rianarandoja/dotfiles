@@ -41,4 +41,3 @@ if [[ $(uname) == "Darwin" ]]; then
 fi
 
 [[ -a $HOME/.dokku/contrib/dokku_client.sh ]] && export DOKKU_HOST='dokku'
-[[ -a $HOME/.dokku/contrib/dokku_client.sh ]] && export DOKKU_PORT='2341'
