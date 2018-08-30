@@ -49,7 +49,7 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(autojump encode64 extract git nyan zsh-syntax-highlighting history-substring-search)
+plugins=(autojump encode64 extract git zsh-syntax-highlighting history-substring-search)
 
 export PATH=.git/safe/../../bin:$HOME/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
