@@ -35,6 +35,7 @@ if [[ $(uname) == "Darwin" ]]; then
   [ -d /usr/local/opt/yarn ] && export PATH="`yarn global bin`:$PATH"
   [ -d ~/Code/go ] && export PATH=~/Code/go/bin:$PATH
   [ -d ~/Code/go ] && export GOPATH=~/Code/go
+  [ -d /usr/local/opt/rustup-init ] && export PATH=/usr/local/opt/rustup-init/bin:$PATH
   source $(brew --prefix autoenv)/activate.sh
   export BYOBU_PREFIX=/usr/local
   export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
