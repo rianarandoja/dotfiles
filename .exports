@@ -40,5 +40,3 @@ if [[ $(uname) == "Darwin" ]]; then
   export BYOBU_PREFIX=/usr/local
   export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 fi
-
-[[ -a $HOME/.dokku/contrib/dokku_client.sh ]] && export DOKKU_HOST='dokku'
