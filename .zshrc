@@ -7,6 +7,7 @@ export ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="spaceship"
 
+SPACESHIP_CHAR_SUFFIX=" "
 SPACESHIP_ELM_SHOW="false"
 SPACESHIP_HG_SHOW="false"
 SPACESHIP_ELIXIR_SHOW="false"
