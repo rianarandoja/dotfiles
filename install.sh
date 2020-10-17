@@ -35,6 +35,7 @@ function externals {
   fi
 
   fetch_external ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting "https://github.com/zsh-users/zsh-syntax-highlighting.git"
+  fetch_external ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions "https://github.com/zsh-users/zsh-autosuggestions.git"
   fetch_external ~/.oh-my-zsh/custom/themes/spaceship-prompt "https://github.com/denysdovhan/spaceship-prompt.git"
   ln -sf ~/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme ~/.oh-my-zsh/themes/spaceship.zsh-theme
 
