@@ -40,4 +40,8 @@ if [[ $(uname) == "Darwin" ]]; then
   export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 fi
 
+if [[ $(grep microsoft /proc/version) ]]; then
+  export GPG_TTY=$(tty)
+fi
+
 [[ -a $HOME/.dokku/contrib/dokku_client.sh ]] && export DOKKU_HOST='qa'
