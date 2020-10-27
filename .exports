@@ -41,7 +41,9 @@ if [[ $(uname) == "Darwin" ]]; then
 fi
 
 if [[ $(grep microsoft /proc/version) ]]; then
+  ps -ef | grep gpg-agent | grep -v grep > /dev/null || eval $(gpg-agent --daemon)
   export GPG_TTY=$(tty)
+  export GPG_AGENT_INFO=`gpgconf --list-dirs agent-socket | tr -d '\n' && echo -n ::`
 
   if [ -z "$(pgrep ssh-agent)" ]; then
     rm -rf /tmp/ssh-*
