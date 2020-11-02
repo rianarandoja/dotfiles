@@ -52,6 +52,8 @@ if [[ $(grep microsoft /proc/version) ]]; then
     export SSH_AGENT_PID=$(pgrep ssh-agent)
     export SSH_AUTH_SOCK=$(find /tmp/ssh-* -name 'agent.*')
   fi
+
+  export CHROME_HEADLESS=true
 fi
 
 [[ -a $HOME/.dokku/contrib/dokku_client.sh ]] && export DOKKU_HOST='qa'
