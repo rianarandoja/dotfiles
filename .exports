@@ -29,6 +29,7 @@ else
 fi
 
 if [[ $(uname) == "Darwin" ]]; then
+  [ -d /opt/homebrew ] && export PATH=/opt/homebrew/bin:$PATH
   [ -d /usr/local/opt/coreutils/libexec/gnubin ] && export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
   [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
   [ -f /usr/libexec/java_home ] && export JAVA_HOME=$(/usr/libexec/java_home)
