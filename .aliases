@@ -127,9 +127,7 @@ if [[ $(uname) == "Darwin" ]]; then
   alias spotoff="sudo mdutil -a -i off"
   # Enable Spotlight
   alias spoton="sudo mdutil -a -i on"
-fi
-
-if [[ $(grep microsoft /proc/version) ]]; then
+elif [[ $(grep microsoft /proc/version) ]]; then
   alias o="explorer.exe"
   alias oo="explorer.exe ."
 fi
