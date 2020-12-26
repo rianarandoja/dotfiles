@@ -55,7 +55,8 @@ elif [[ $(grep microsoft /proc/version) ]]; then
     export SSH_AUTH_SOCK=$(find /tmp/ssh-* -name 'agent.*')
   fi
 
-  export CHROME_HEADLESS=true
+  # X server
+  export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
 fi
 
 [[ -a $HOME/.dokku/contrib/dokku_client.sh ]] && export DOKKU_HOST='qa'
