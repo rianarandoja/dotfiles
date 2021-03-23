@@ -43,16 +43,24 @@ elif [[ $(grep microsoft /proc/version) ]]; then
   [ -d ~/code/go ] && export PATH=~/code/go/bin:$PATH
   [ -d ~/code/go ] && export GOPATH=~/code/go
 
-  ps -ef | grep gpg-agent | grep -v grep > /dev/null || eval $(gpg-agent --daemon)
-  export GPG_TTY=$(tty)
-  export GPG_AGENT_INFO=`gpgconf --list-dirs agent-socket | tr -d '\n' && echo -n ::`
+  # ps -ef | grep gpg-agent | grep -v grep > /dev/null || eval $(gpg-agent --daemon)
+  # export GPG_TTY=$(tty)
+  # export GPG_AGENT_INFO=`gpgconf --list-dirs agent-socket | tr -d '\n' && echo -n ::`
 
-  if [ -z "$(pgrep ssh-agent)" ]; then
-    rm -rf /tmp/ssh-*
-    eval $(ssh-agent -s) > /dev/null
-  else
-    export SSH_AGENT_PID=$(pgrep ssh-agent)
-    export SSH_AUTH_SOCK=$(find /tmp/ssh-* -name 'agent.*')
+  # Removing Linux SSH socket and replacing it by link to wsl2-ssh-pageant socket
+  export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
+  ss -a | grep -q $SSH_AUTH_SOCK
+  if [ $? -ne 0 ]; then
+    rm -f $SSH_AUTH_SOCK
+    setsid nohup socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:$HOME/.ssh/wsl2-ssh-pageant.exe &>/dev/null &
+  fi
+
+  # Removing Linux GPG Agent socket and replacing it by link to wsl2-ssh-pageant GPG socket
+  export GPG_AGENT_SOCK=$HOME/.gnupg/S.gpg-agent
+  ss -a | grep -q $GPG_AGENT_SOCK
+  if [ $? -ne 0 ]; then
+    rm -rf $GPG_AGENT_SOCK
+    setsid nohup socat UNIX-LISTEN:$GPG_AGENT_SOCK,fork EXEC:"$HOME/.ssh/wsl2-ssh-pageant.exe --gpg S.gpg-agent" &>/dev/null &
   fi
 
   # X server
