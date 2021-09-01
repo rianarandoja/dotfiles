@@ -146,3 +146,9 @@ function unquarantine() {
     xattr -r -d "$attribute" "$@"
   done
 }
+
+# Download video from youtube with subs, thumbnail, and metadata; date and title in filename; convert to mp4
+function youtube-archive() {
+  youtube-dl --recode-video mp4 --embed-subs --embed-thumbnail --add-metadata --all-subs -o "%(upload_date)s %(title)s.%(ext)s" "$1"
+  rename "s/^(\d{4})(\d{2})(\d{2})/$1-$2-$3/" [0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]\ *
+}

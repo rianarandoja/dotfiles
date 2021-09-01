@@ -44,6 +44,8 @@ if [[ $(uname) == "Darwin" ]]; then
   export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
   gpgconf --launch gpg-agent
 elif [[ $(grep microsoft /proc/version) ]]; then
+  [ -d /home/linuxbrew ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  [ -d /usr/local/go/bin ] && export PATH=$PATH:/usr/local/go/bin
   [ -d ~/code/go ] && export PATH=~/code/go/bin:$PATH
   [ -d ~/code/go ] && export GOPATH=~/code/go
 
@@ -66,5 +68,7 @@ elif [[ $(grep microsoft /proc/version) ]]; then
   # X server
   export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
 fi
+
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 [[ -a $HOME/.dokku/contrib/dokku_client.sh ]] && export DOKKU_HOST='qa'

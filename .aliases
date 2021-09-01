@@ -94,9 +94,6 @@ alias map="xargs -n1"
 # Make Grunt print stack traces by default
 command -v grunt > /dev/null && alias grunt="grunt --stack"
 
-# Download video from youtube with subs, thumbnail, and metadata; date and title in filename; convert to mp4
-alias youtube-archive='youtube-dl --recode-video mp4 --embed-subs --embed-thumbnail --add-metadata --all-subs -o "%(upload_date)s %(title)s.%(ext)s"'
-
 if [[ $(uname) == "Darwin" ]]; then
   alias m="mate ."
   alias s="subl ."
