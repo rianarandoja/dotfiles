@@ -65,8 +65,7 @@ elif [[ $(grep microsoft /proc/version) ]]; then
     setsid nohup socat UNIX-LISTEN:$GPG_AGENT_SOCK,fork EXEC:"$HOME/.ssh/wsl2-ssh-pageant.exe --gpg S.gpg-agent" &>/dev/null &
   fi
 
-  # X server
-  export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
+   export SPACESHIP_BATTERY_SHOW=false
 fi
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
