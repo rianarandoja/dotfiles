@@ -50,7 +50,7 @@ fi
 if [ -f ./install.sh ]; then
   notice "Installing"
   cd $root
-  git pull origin master
+  git pull origin main
   ./install.sh $dorbenv
 fi
 

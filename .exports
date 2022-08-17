@@ -45,6 +45,10 @@ if [[ $(uname) == "Darwin" ]]; then
   export GPG_TTY="$(tty)"
   export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
   gpgconf --launch gpg-agent
+
+  if type shadowenv &> /dev/null; then
+    eval "$(shadowenv init zsh)"
+  fi
 elif [[ $(grep microsoft /proc/version) ]]; then
   [ -d /home/linuxbrew ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
   [ -d /usr/local/go/bin ] && export PATH=$PATH:/usr/local/go/bin

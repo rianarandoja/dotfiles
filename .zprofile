@@ -6,7 +6,3 @@ export RUBY_GC_MALLOC_LIMIT=50000000
 if type rbenv &> /dev/null; then
   eval "$(rbenv init -)"
 fi
-
-if type shadowenv &> /dev/null; then
-  eval "$(shadowenv init zsh)"
-fi
