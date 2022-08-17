@@ -37,6 +37,8 @@ if [[ $(uname) == "Darwin" ]]; then
   [ -d ~/Code/go ] && export PATH=~/Code/go/bin:$PATH
   [ -d ~/Code/go ] && export GOPATH=~/Code/go
   [ -d /usr/local/opt/rustup-init ] && export PATH=/usr/local/opt/rustup-init/bin:$PATH
+  [ -d ~/Library/pnpm ] && export PATH=~/Library/pnpm:$PATH
+
   export BYOBU_PREFIX=/usr/local
   export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 

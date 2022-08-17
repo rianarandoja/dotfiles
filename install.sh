@@ -26,7 +26,7 @@ function install {
 function externals {
   if [ ! -d "${ZDOTDIR:-$HOME}/.oh-my-zsh" ]; then
     notice "Installing oh-my-zsh"
-    git clone --recursive git://github.com/robbyrussell/oh-my-zsh.git "${ZDOTDIR:-$HOME}/.oh-my-zsh"
+    git clone --recursive https://github.com/robbyrussell/oh-my-zsh.git "${ZDOTDIR:-$HOME}/.oh-my-zsh"
   else
     notice "Updating oh-my-zsh"
     cd "${ZDOTDIR:-$HOME}/.oh-my-zsh"
@@ -41,9 +41,9 @@ function externals {
 
   if [ ! -z "$dorbenv" ]; then
     notice "Updating rbenv"
-    fetch_external ~/.rbenv "git://github.com/sstephenson/rbenv.git"
-    fetch_external ~/.rbenv/plugins/ruby-build "git://github.com/sstephenson/ruby-build.git"
-    fetch_external ~/.rbenv/plugins/rbenv-vars "git://github.com/sstephenson/rbenv-vars.git"
+    fetch_external ~/.rbenv "https://github.com/sstephenson/rbenv.git"
+    fetch_external ~/.rbenv/plugins/ruby-build "https://github.com/sstephenson/ruby-build.git"
+    fetch_external ~/.rbenv/plugins/rbenv-vars "https://github.com/sstephenson/rbenv-vars.git"
   fi
 }
 
