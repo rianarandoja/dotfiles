@@ -13,6 +13,8 @@ SPACESHIP_HG_SHOW="false"
 SPACESHIP_ELIXIR_SHOW="false"
 SPACESHIP_HASKELL_SHOW="false"
 SPACESHIP_KUBECTL_CONTEXT_SHOW="false"
+SPACESHIP_DOCKER_SHOW="false"
+SPACESHIP_DOCKER_COMPOSE_SHOW="false"
 SPACESHIP_DIR_TRUNC_REPO="false"
 
 # Uncomment the following line to use hyphen-insensitive completion.
