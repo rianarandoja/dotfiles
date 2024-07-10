@@ -48,4 +48,7 @@ function externals {
 }
 
 externals
-install
+
+if [ ! -z "$CODER_WORKSPACE_NAME" ]; then
+  install
+fi
