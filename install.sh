@@ -49,6 +49,6 @@ function externals {
 
 externals
 
-if [ ! -z "$CODER_WORKSPACE_NAME" ]; then
+if [ -z "$CODER_WORKSPACE_NAME" ]; then
   install
 fi
