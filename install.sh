@@ -3,6 +3,10 @@
 dorbenv=$1
 root=~/.dotfiles/
 
+if [ ! -z "$CODER_WORKSPACE_NAME" ]; then
+  root=~/.config/coderv2/dotfiles
+fi
+
 # --- Functions --- #
 # Notice title
 function notice { echo -e "\033[1;32m=> $1\033[0m"; }
@@ -48,9 +52,4 @@ function externals {
 }
 
 externals
-
-echo $(env)
-
-if [ -z "$CODER_WORKSPACE_NAME" ]; then
-  install
-fi
+install
