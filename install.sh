@@ -49,6 +49,8 @@ function externals {
 
 externals
 
+echo $(env)
+
 if [ -z "$CODER_WORKSPACE_NAME" ]; then
   install
 fi
