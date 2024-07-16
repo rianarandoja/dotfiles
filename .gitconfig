@@ -5,7 +5,7 @@
 [user]
 	name = Kristjan Rang
 	email = mail@rang.ee
-  signingkey = ~/.ssh/id_rsa.pub.yubi
+  signingkey = ~/.ssh/id_rsa.pub.sign
 
 [gpg]
   format = ssh
