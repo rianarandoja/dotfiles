@@ -5,6 +5,10 @@
 [user]
 	name = Kristjan Rang
 	email = mail@rang.ee
+  signingkey = ~/.ssh/id_rsa.pub.yubi
+
+[gpg]
+  format = ssh
 
 [alias]
 	# View abbreviated SHA, description, and history graph of the latest 20 commits

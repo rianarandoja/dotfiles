@@ -42,9 +42,9 @@ if [[ $(uname) == "Darwin" ]]; then
   export BYOBU_PREFIX=/usr/local
   export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 
+  eval $(gpg-connect-agent --quiet /bye)
   export GPG_TTY="$(tty)"
   export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-  gpgconf --launch gpg-agent
 
   if type shadowenv &> /dev/null; then
     eval "$(shadowenv init zsh)"
