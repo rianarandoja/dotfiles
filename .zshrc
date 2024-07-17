@@ -87,7 +87,6 @@ unsetopt correct_all
 
 # Load general files
 source ~/.aliases
-source ~/.exports
 source ~/.functions
 unalias gm
 

@@ -1,8 +1,81 @@
-export RBENV_ROOT=$rbenvdir
-export PATH=~/Code/go/bin:/usr/local/share/npm/bin:~/.rbenv/bin:~/.cargo/bin:/usr/local/sbin:/usr/local/bin:$PATH
+export PATH=~/.rbenv/bin:~/.cargo/bin:/usr/local/sbin:/usr/local/bin:$PATH
 
 export RUBY_GC_MALLOC_LIMIT=50000000
 
+# Prefer US English and use UTF-8
+export LANG="en_US"
+export LC_ALL="en_US.UTF-8"
+export DEFAULT_USER=kris
+
+# ssh
+export SSH_KEY_PATH="~/.ssh/id_rsa"
+
+# Don’t clear the screen after quitting a manual page
+export MANPAGER="less -X"
+
+# Highlight section titles in manual pages
+export LESS_TERMCAP_md="$ORANGE"
+
+# Set editor
+if [[ -n $VSCODE_INJECTION ]]; then
+  export EDITOR="code --wait"
+  export VISUAL="code --wait"
+elif [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR="nano"
+else
+  export EDITOR="code --wait"
+  export VISUAL="code --wait"
+fi
+
+if type shadowenv &> /dev/null; then
+  eval "$(shadowenv init zsh)"
+fi
+
 if type rbenv &> /dev/null; then
   eval "$(rbenv init -)"
+fi
+
+if [[ $(uname) == "Darwin" ]]; then
+  # Always enable colored `grep` output
+  export GREP_OPTIONS="--color=auto"
+
+  [ -d /opt/homebrew ] && export PATH=/opt/homebrew/bin:$PATH
+  [ -d /usr/local/opt/coreutils/libexec/gnubin ] && export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+  [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+  [ -f /usr/libexec/java_home ] && export JAVA_HOME=$(/usr/libexec/java_home)
+  [ -d /usr/local/opt/yarn ] && export PATH="`yarn global bin`:$PATH"
+  [ -d /usr/local/opt/rustup-init ] && export PATH=/usr/local/opt/rustup-init/bin:$PATH
+  [ -d ~/Library/pnpm ] && export PATH=~/Library/pnpm:$PATH
+
+  export BYOBU_PREFIX=/usr/local
+  export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
+
+  eval $(gpg-connect-agent --quiet /bye)
+  export GPG_TTY="$(tty)"
+  export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+elif [[ $(uname) == "Linux" ]]; then
+
+elif [[ $(grep microsoft /proc/version) ]]; then
+  [ -d /home/linuxbrew ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  [ -d /usr/local/go/bin ] && export PATH=$PATH:/usr/local/go/bin
+  [ -d ~/code/go ] && export PATH=~/code/go/bin:$PATH
+  [ -d ~/code/go ] && export GOPATH=~/code/go
+
+  # Removing Linux SSH socket and replacing it by link to wsl2-ssh-pageant socket
+  export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
+  ss -a | grep -q $SSH_AUTH_SOCK
+  if [ $? -ne 0 ]; then
+    rm -f $SSH_AUTH_SOCK
+    setsid nohup socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:$HOME/.ssh/wsl2-ssh-pageant.exe &>/dev/null &
+  fi
+
+  # Removing Linux GPG Agent socket and replacing it by link to wsl2-ssh-pageant GPG socket
+  export GPG_AGENT_SOCK=$HOME/.gnupg/S.gpg-agent
+  ss -a | grep -q $GPG_AGENT_SOCK
+  if [ $? -ne 0 ]; then
+    rm -rf $GPG_AGENT_SOCK
+    setsid nohup socat UNIX-LISTEN:$GPG_AGENT_SOCK,fork EXEC:"$HOME/.ssh/wsl2-ssh-pageant.exe --gpg S.gpg-agent" &>/dev/null &
+  fi
+
+   export SPACESHIP_BATTERY_SHOW=false
 fi

@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-dorbenv=$1
+skiprbenv=$1
 root=~/.dotfiles/
 
 if [ ! -z "$CODER_WORKSPACE_NAME" ]; then
@@ -43,7 +43,7 @@ function externals {
   fetch_external ~/.oh-my-zsh/custom/themes/spaceship-prompt "https://github.com/denysdovhan/spaceship-prompt.git"
   ln -sf ~/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme ~/.oh-my-zsh/themes/spaceship.zsh-theme
 
-  if [ ! -z "$dorbenv" ]; then
+  if [ -z "$skiprbenv" ]; then
     notice "Updating rbenv"
     fetch_external ~/.rbenv "https://github.com/sstephenson/rbenv.git"
     fetch_external ~/.rbenv/plugins/ruby-build "https://github.com/sstephenson/ruby-build.git"
