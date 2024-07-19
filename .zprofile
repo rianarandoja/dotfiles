@@ -35,6 +35,8 @@ if type rbenv &> /dev/null; then
   eval "$(rbenv init -)"
 fi
 
+[ -d /shellhistory ] && export HISTFILE=/shellhistory/.zsh_history
+
 if [[ $(uname) == "Darwin" ]]; then
   # Always enable colored `grep` output
   export GREP_OPTIONS="--color=auto"
