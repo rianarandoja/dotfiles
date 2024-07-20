@@ -88,6 +88,7 @@ unsetopt correct_all
 # Load general files
 source ~/.aliases
 source ~/.functions
+source ~/.exports
 unalias gm
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

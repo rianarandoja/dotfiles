@@ -54,7 +54,7 @@ if [[ $(uname) == "Darwin" ]]; then
   export GPG_TTY="$(tty)"
   export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 elif [[ $(uname) == "Linux" ]]; then
-
+  [ -d /commandhistory ] && export HISTFILE=/commandhistory/.zsh_history
 elif [[ $(grep microsoft /proc/version) ]]; then
   [ -d /home/linuxbrew ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
   [ -d /usr/local/go/bin ] && export PATH=$PATH:/usr/local/go/bin
