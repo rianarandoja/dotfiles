@@ -2,10 +2,10 @@
 	private = yes
 	browse = yes
 
-[user]
-	name = Kristjan Rang
-	email = mail@rang.ee
-  signingkey = ~/.ssh/id_rsa.pub.sign
+# [user]
+# 	name = Kristjan Rang
+# 	email = mail@rang.ee
+#   signingkey = ~/.ssh/id_rsa.pub.sign
 
 [gpg]
   format = ssh

@@ -5,7 +5,7 @@ export RUBY_GC_MALLOC_LIMIT=50000000
 # Prefer US English and use UTF-8
 export LANG="en_US"
 export LC_ALL="en_US.UTF-8"
-export DEFAULT_USER=kris
+# export DEFAULT_USER=kris
 
 # ssh
 export SSH_KEY_PATH="~/.ssh/id_rsa"

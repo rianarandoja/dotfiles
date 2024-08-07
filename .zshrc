@@ -5,17 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="spaceship"
-
-SPACESHIP_CHAR_SUFFIX=" "
-SPACESHIP_ELM_SHOW="false"
-SPACESHIP_HG_SHOW="false"
-SPACESHIP_ELIXIR_SHOW="false"
-SPACESHIP_HASKELL_SHOW="false"
-SPACESHIP_KUBECTL_CONTEXT_SHOW="false"
-SPACESHIP_DOCKER_SHOW="false"
-SPACESHIP_DOCKER_COMPOSE_SHOW="false"
-SPACESHIP_DIR_TRUNC_REPO="false"
+ZSH_THEME="simple"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
