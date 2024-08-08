@@ -4,3 +4,6 @@
 [submodule ".rbenv"]
 	path = .rbenv
 	url = git://github.com/sstephenson/rbenv.git
+[submodule "zsh/custom/plugins/zsh-autosuggestions"]
+	path = zsh/custom/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
