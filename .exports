@@ -17,8 +17,15 @@ export MANPAGER="less -X"
 export LESS_TERMCAP_md="$ORANGE"
 
 # Set editor
-export EDITOR="code --wait"
-export VISUAL="code --wait"
+if [[ -n $VSCODE_INJECTION ]]; then
+  export EDITOR="code --wait"
+  export VISUAL="code --wait"
+elif [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR="nano"
+else
+  export EDITOR="code --wait"
+  export VISUAL="code --wait"
+fi
 
 if type shadowenv &> /dev/null; then
   eval "$(shadowenv init zsh)"
